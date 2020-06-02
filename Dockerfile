@@ -16,7 +16,9 @@ RUN echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main" >> /e
    stable" && \
     apt-get update && \
     apt-get install -y docker-ce && \
-    usermod -aG docker jenkins
+    groupadd dockercoreos --gid 982 && \
+    usermod -aG docker jenkins && \
+    usermod -aG dockercoreos jenkins
 
 USER jenkins
 
